@@ -2,7 +2,7 @@ package com.wojtek.booking_service.controller;
 
 import com.wojtek.booking_service.dto.RoomBookingNameSurname;
 import com.wojtek.booking_service.dto.RoomBooking;
-import com.wojtek.booking_service.repository.RoomBookingService;
+import com.wojtek.booking_service.service.RoomBookingService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;

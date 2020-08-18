@@ -1,4 +1,4 @@
-package com.wojtek.booking_service.repository;
+package com.wojtek.booking_service.service;
 
 import com.wojtek.booking_service.dto.RoomBookingNameSurname;
 import com.wojtek.booking_service.dto.User;
@@ -7,6 +7,9 @@ import com.wojtek.booking_service.entity.RoomBookingEntity;
 import com.wojtek.booking_service.exception.DateMisfilled;
 import com.wojtek.booking_service.exception.ResourceNotFoundException;
 import com.wojtek.booking_service.exception.RoomIsOccupiedException;
+import com.wojtek.booking_service.repository.RoomBookingRepository;
+import com.wojtek.booking_service.repository.RoomRemoteRepository;
+import com.wojtek.booking_service.repository.UserRemoteRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
