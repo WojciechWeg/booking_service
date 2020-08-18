@@ -1,7 +1,8 @@
-package com.wojtek.booking_service;
+package com.wojtek.booking_service.repository;
 
 
 
+import com.wojtek.booking_service.dto.Room;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

@@ -1,6 +1,7 @@
-package com.wojtek.booking_service;
+package com.wojtek.booking_service.repository;
 
 
+import com.wojtek.booking_service.entity.RoomBookingEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

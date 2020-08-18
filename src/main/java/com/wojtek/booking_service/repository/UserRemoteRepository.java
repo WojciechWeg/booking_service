@@ -1,8 +1,8 @@
-package com.wojtek.booking_service;
+package com.wojtek.booking_service.repository;
 
+import com.wojtek.booking_service.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

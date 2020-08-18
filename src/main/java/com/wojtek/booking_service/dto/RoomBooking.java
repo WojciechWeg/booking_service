@@ -1,4 +1,4 @@
-package com.wojtek.booking_service;
+package com.wojtek.booking_service.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

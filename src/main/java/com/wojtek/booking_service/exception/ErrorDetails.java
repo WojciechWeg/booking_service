@@ -1,4 +1,4 @@
-package com.wojtek.booking_service;
+package com.wojtek.booking_service.exception;
 
 import java.util.Date;
 
