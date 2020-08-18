@@ -119,7 +119,7 @@ public class RoomBookingService {
 
             RoomBookingNameSurname roomBookingNameSurname = new RoomBookingNameSurname();
 
-            UserEntity userEntity = (UserEntity) userRemoteRepository.findById(item.getUserLogin()).orElseThrow(() -> new ResourceNotFoundException("There is no such a user."));
+            User userEntity = userRemoteRepository.findById(item.getUserLogin()).orElseThrow(() -> new ResourceNotFoundException("There is no such a user."));
 
             roomBookingNameSurname.setUserName(userEntity.getName());
             roomBookingNameSurname.setUserSurname(userEntity.getSurname());
