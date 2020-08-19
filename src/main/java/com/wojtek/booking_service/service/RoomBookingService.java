@@ -54,7 +54,7 @@ public class RoomBookingService {
 
 
     public List<RoomBookingNameSurname> getBookingScheduleForAllRooms(LocalDateTime dateStart, LocalDateTime dateEnd) {
-        dateCheck( dateStart,  dateEnd);
+        dateCheckForBrowsing( dateStart,  dateEnd);
 
         List<RoomBookingEntity> roomBookingEntityList = new LinkedList<>();
 
@@ -76,7 +76,7 @@ public class RoomBookingService {
     }
 
     public List<RoomBookingNameSurname> getBookingScheduleForGivenRoom(LocalDateTime dateStart, LocalDateTime dateEnd, String roomName) {
-        dateCheck( dateStart,  dateEnd);
+        dateCheckForBrowsing( dateStart,  dateEnd);
         roomRemoteRepository.findById(roomName).orElseThrow(()-> new ResourceNotFoundException("No such room"));
 
 
@@ -100,7 +100,7 @@ public class RoomBookingService {
     }
 
     public List<RoomBookingNameSurname> getBookingScheduleForGivenUser(LocalDateTime dateStart, LocalDateTime dateEnd, String userLogin) {
-        dateCheck( dateStart,  dateEnd);
+        dateCheckForBrowsing( dateStart,  dateEnd);
 
         userRemoteRepository.findById(userLogin).orElseThrow(()-> new ResourceNotFoundException("No such user"));
 
@@ -162,5 +162,13 @@ public class RoomBookingService {
 
     }
 
+    private boolean dateCheckForBrowsing(LocalDateTime dateStart, LocalDateTime dateEnd){
+        if(dateEnd.equals(dateStart))
+            throw new DateMisfilled("End date is the same like start date.");
 
+        if(dateEnd.isBefore(dateStart))
+            throw new DateMisfilled("End date can't be before start date.");
+
+        return true;
+    }
 }
