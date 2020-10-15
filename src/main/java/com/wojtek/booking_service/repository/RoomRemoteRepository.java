@@ -1,24 +1,20 @@
 package com.wojtek.booking_service.repository;
 
-
-
 import com.wojtek.booking_service.dto.Room;
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 @Service
+@EnableFeignClients
 public class RoomRemoteRepository {
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+    @Autowired
+    private RoomServiceClient roomServiceClient;
 
     public Optional<Room> findById(String roomName) {
-        String getRoomUrl = "http://localhost:8081/room/";
-        Room room = restTemplate().getForObject(getRoomUrl + roomName, Room.class);
+        Room room = roomServiceClient.getRoom(roomName);
         return Optional.ofNullable(room);
     }
 }

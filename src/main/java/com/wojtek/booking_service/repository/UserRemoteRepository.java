@@ -2,9 +2,7 @@ package com.wojtek.booking_service.repository;
 
 import com.wojtek.booking_service.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Optional;
 
@@ -12,12 +10,11 @@ import java.util.Optional;
 public class UserRemoteRepository {
 
     @Autowired
-    private ApplicationContext appContext;
+    private UserServiceClient userServiceClient;
 
     public Optional<User> findById(String userLogin) {
-        String getRoomUrl = "http://localhost:8082/user/";
-        RestTemplate restTemplate =  appContext.getBean("restTemplate", RestTemplate.class);
-        User user = restTemplate.getForObject(getRoomUrl + userLogin, User.class);
+        User user = userServiceClient.getUser(userLogin);
         return Optional.ofNullable(user);
     }
+
 }
