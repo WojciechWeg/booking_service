@@ -30,42 +30,39 @@ public class RoomBookingController {
     @GetMapping()
     public List<RoomBookingNameSurname> getBookingScheduleForAllRooms(@RequestParam String dateStart, @RequestParam String dateEnd){
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         if(dateEnd.equals("") && dateStart.equals(""))
             return roomBookingService.getBookingScheduleForAllRooms(null, null);
         if(dateStart.equals(""))
-            return roomBookingService.getBookingScheduleForAllRooms(null, LocalDateTime.parse(dateEnd,dateTimeFormatter));
+            return roomBookingService.getBookingScheduleForAllRooms(null, LocalDateTime.parse(dateEnd));
         if(dateEnd.equals(""))
-            return roomBookingService.getBookingScheduleForAllRooms(LocalDateTime.parse(dateStart,dateTimeFormatter), null);
-        return roomBookingService.getBookingScheduleForAllRooms(LocalDateTime.parse(dateStart,dateTimeFormatter), LocalDateTime.parse(dateEnd,dateTimeFormatter));
+            return roomBookingService.getBookingScheduleForAllRooms(LocalDateTime.parse(dateStart), null);
+        return roomBookingService.getBookingScheduleForAllRooms(LocalDateTime.parse(dateStart), LocalDateTime.parse(dateEnd));
 
     }
 
     @GetMapping({"/givenRoom"})
     public List<RoomBookingNameSurname> getBookingScheduleForGivenRoom(@RequestParam String dateStart, @RequestParam String dateEnd, @RequestParam String roomName){
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         if(dateEnd.equals("") && dateStart.equals(""))
             return roomBookingService.getBookingScheduleForGivenRoom(null, null,roomName);
         if(dateStart.equals(""))
-            return roomBookingService.getBookingScheduleForGivenRoom(null, LocalDateTime.parse(dateEnd,dateTimeFormatter),roomName);
+            return roomBookingService.getBookingScheduleForGivenRoom(null, LocalDateTime.parse(dateEnd),roomName);
         if(dateEnd.equals(""))
-            return roomBookingService.getBookingScheduleForGivenRoom(LocalDateTime.parse(dateStart,dateTimeFormatter), null,roomName);
-        return roomBookingService.getBookingScheduleForGivenRoom(LocalDateTime.parse(dateStart,dateTimeFormatter), LocalDateTime.parse(dateEnd,dateTimeFormatter),roomName);
+            return roomBookingService.getBookingScheduleForGivenRoom(LocalDateTime.parse(dateStart), null,roomName);
+        return roomBookingService.getBookingScheduleForGivenRoom(LocalDateTime.parse(dateStart), LocalDateTime.parse(dateEnd),roomName);
 
     }
 
     @GetMapping({"/givenUser"})
     public List<RoomBookingNameSurname> getBookingScheduleForGivenUser(@RequestParam String dateStart, @RequestParam String dateEnd, @RequestParam String userLogin){
 
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         if(dateEnd.equals("") && dateStart.equals(""))
             return roomBookingService.getBookingScheduleForGivenUser(null, null,userLogin);
         if(dateStart.equals(""))
-            return roomBookingService.getBookingScheduleForGivenUser(null, LocalDateTime.parse(dateEnd,dateTimeFormatter),userLogin);
+            return roomBookingService.getBookingScheduleForGivenUser(null, LocalDateTime.parse(dateEnd),userLogin);
         if(dateEnd.equals(""))
-            return roomBookingService.getBookingScheduleForGivenUser(LocalDateTime.parse(dateStart,dateTimeFormatter), null,userLogin);
-        return roomBookingService.getBookingScheduleForGivenUser(LocalDateTime.parse(dateStart,dateTimeFormatter), LocalDateTime.parse(dateEnd,dateTimeFormatter),userLogin);
+            return roomBookingService.getBookingScheduleForGivenUser(LocalDateTime.parse(dateStart), null,userLogin);
+        return roomBookingService.getBookingScheduleForGivenUser(LocalDateTime.parse(dateStart), LocalDateTime.parse(dateEnd),userLogin);
 
     }
 

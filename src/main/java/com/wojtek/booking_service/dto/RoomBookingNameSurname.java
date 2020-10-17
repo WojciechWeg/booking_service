@@ -33,11 +33,9 @@ public class RoomBookingNameSurname {
     String userSurname;
 
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     LocalDateTime dateStart;
 
     @NotNull
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     LocalDateTime dateEnd;
 
 
